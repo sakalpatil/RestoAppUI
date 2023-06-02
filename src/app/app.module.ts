@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SidebarMenuComponent } from './common/sidebar-menu/sidebar-menu.component';
+import { TableGridComponent } from './transactions/table-grid/table-grid.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarMenuComponent,
+    TableGridComponent
   ],
   imports: [
     BrowserModule,
