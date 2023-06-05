@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
-
 @Component({
   selector: 'app-menu-category',
   templateUrl: './menu-category.component.html',
@@ -11,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuCategoryComponent implements OnInit {
 
-
-  constructor() { }
-  
+  constructor() { }  
   ngOnInit(): void {
    
   }

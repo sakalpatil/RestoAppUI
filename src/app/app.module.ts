@@ -3,18 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarMenuComponent } from './common/sidebar-menu/sidebar-menu.component';
-import { TableGridComponent } from './transactions/table-grid/table-grid.component';
+import { TableGridComponent } from './Transactions/table-grid/table-grid.component';
+import { MenuCategoryComponent } from './Masters/menu-category/menu-category.component';
+import { MenuCategoryFormComponent } from './Masters/menu-category/menu-category-form/menu-category-form.component';
+import { MenuCategoryGridComponent } from './Masters/menu-category/menu-category-grid/menu-category-grid.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SidebarMenuComponent,
-    TableGridComponent
+    AppComponent,    
+    TableGridComponent,
+    MenuCategoryComponent,
+    MenuCategoryFormComponent,
+    MenuCategoryGridComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
