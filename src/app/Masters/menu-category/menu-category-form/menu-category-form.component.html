@@ -1,14 +1,15 @@
 <div class="mt-4">
-<form>
+<form [formGroup]="form">
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+      <label for="name" class="form-label"><span class="text-danger">*</span>Name</label>
+      <input type="text" class="form-control" formControlName="Name" id="Name" name="Name" >
+      <span class="text-danger" *ngIf="form.get('Name')?.touched && form.get('Name')?.invalid">Please Enter Category Name</span>
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" id="description"  name="description"></textarea>
+      <textarea class="form-control" id="description" formControlName="Description" name="Description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary" (click)="Submit()">Submit</button>
   </form>
 </div>
   
