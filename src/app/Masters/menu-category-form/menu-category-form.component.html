@@ -9,7 +9,14 @@
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control" id="description" formControlName="Description" name="Description"></textarea>
     </div>
-    <button type="submit" [disabled]="form.invalid" class="btn btn-primary" (click)="Submit()">Submit</button>
+    <button type="submit" [disabled]="form.invalid" class="btn" [ngClass]="{'btn-primary':form.get('ID')?.value!==null,'btn-success':form.get('ID')?.value==null}"  (click)="Submit()" >
+      {{form.get('ID')?.value!==null?'Update':'Save'}}
+    </button>
+    <div *ngIf="errorMessage!==''" class="alert alert-danger mt-4">
+        <span class="text-bold">{{errorMessage}}</span>
+      <button class="btn btn-close float-end" (click)="close()"></button>
+    </div>
+    <app-menu-category-grid [menuCategories]="menuCategories" (onEdit)="edit($event)" (onDelete)="onLoad()" ></app-menu-category-grid>
   </form>
 </div>
   

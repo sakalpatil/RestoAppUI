@@ -1,6 +1,6 @@
 export interface MenuCategory  {
-  
+  ID:number | undefined
   Name: string;
-  Description: string | null;
-  
+  Description: string | null;  
+  IsDeleted:boolean
 }
