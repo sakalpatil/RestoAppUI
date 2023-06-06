@@ -1,0 +1,41 @@
+<div class="mt-4">
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+           
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of menuCategories">
+            
+            <td>{{ category.Name }}</td>
+            <td>{{ category.Description }}</td>
+            
+            <td><button class="btn" (click)="edit(category)"><i class="fa-solid fa-pen"></i></button></td>       
+            <td><button class="btn" (click)="openConfirmationModal(confirmModalTemplate,category)"><i class="fa-solid fa-trash"></i></button></td>   
+          </tr>
+        </tbody>
+      </table> 
+      <ng-template #confirmModalTemplate>
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmation</h4>
+          <button type="button" class="close" aria-label="Close" (click)="decline()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to proceed?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="confirm()">Confirm</button>
+          <button type="button" class="btn btn-secondary" (click)="decline()">Cancel</button>
+        </div>
+        
+      </ng-template>     
+    </div>
+
+    
+      

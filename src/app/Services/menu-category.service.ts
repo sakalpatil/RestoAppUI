@@ -1,46 +1,29 @@
-// import { Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
 import {MenuCategory} from 'src/app/interfaces/MenuCategory'
+import {HttpClient} from '@angular/common/http'
+ import {Subject, catchError} from 'rxjs'
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+ providedIn: 'root'
+})
+
 export class MenuCategoryService {
-
-  menuCategories:MenuCategory[]=[];
-  constructor() { 
-    this.menuCategories=[
-      {
-        
-        "Name": "Appetizers",
-        "Description": "Delicious starters to tantalize your taste buds"
-    
-      },
-      {
-     
-        "Name": "Main Course",
-        "Description": "Heartwarming dishes to satisfy your hunger"
-       
-      },
-      {
-        
-        "Name": "Desserts",
-        "Description": "Sweet treats to indulge your sweet tooth"
-      }
-    ]
+  private readonly BASE_URL="https://localhost:5001/api/";
+   public errorSubject= new Subject<string>()
+  constructor(private httpClient:HttpClient) { 
+   
   }
 
-  get()
+  get(pagNumber:number)
   {
-    return this.menuCategories;
+    return this.httpClient.get<MenuCategory[]>(`${this.BASE_URL}MenuCategory?Pagesize=10&PageNumber=${pagNumber}`);
+    
   }
 
   add(menuCategory:MenuCategory)
   {
-    //just for checking the delay
-    setTimeout(()=>{
-      this.menuCategories.push(menuCategory);
-    },4000)
-    
+    const message= this.httpClient.post<string>(`${this.BASE_URL}MenuCategory`,menuCategory);  
+    return message;    
   }
 
   
